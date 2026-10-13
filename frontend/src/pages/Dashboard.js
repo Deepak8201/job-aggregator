@@ -8,19 +8,20 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [platform, setPlatform] = useState('');
+  const [department, setDepartment] = useState('');
   const [message, setMessage] = useState('');
   const token = localStorage.getItem('token');
 
   useEffect(() => {
     fetchJobs();
     fetchApplications();
-  }, [search, platform]);
+  }, [search, platform, department]);
 
   const fetchJobs = async () => {
     try {
       console.log('Fetching jobs from:', window.API_URL);
       const response = await axios.get(`${window.API_URL}/api/jobs`, {
-        params: { search, platform }
+        params: { search, platform, department }
       });
       console.log('Jobs response:', response.data);
       setJobs(response.data.jobs || []);
@@ -141,6 +142,17 @@ export default function Dashboard() {
           <option value="LinkedIn">LinkedIn</option>
           <option value="Naukri">Naukri</option>
           <option value="Indeed">Indeed</option>
+        </select>
+        <select value={department} onChange={(e) => setDepartment(e.target.value)}>
+          <option value="">All Departments</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="DevOps">DevOps</option>
+          <option value="QA">QA</option>
+          <option value="Design">Design</option>
+          <option value="Analytics">Analytics</option>
+          <option value="Product">Product</option>
+          <option value="Mobile">Mobile</option>
         </select>
       </div>
 

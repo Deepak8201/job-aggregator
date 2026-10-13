@@ -5,18 +5,25 @@ const router = express.Router();
 
 // Get all jobs
 router.get('/', (req, res) => {
-  const { platform, search, page = 1 } = req.query;
+  const { platform, search, page = 1, department } = req.query;
+  console.log('Jobs query:', { platform, search, department });
   let filtered = mockJobs;
 
   if (platform) {
     filtered = filtered.filter(job => job.platform === platform);
   }
 
+  if (department) {
+    filtered = filtered.filter(job => job.department === department);
+  }
+
   if (search) {
+    console.log('Searching for:', search);
     filtered = filtered.filter(job =>
       job.title.toLowerCase().includes(search.toLowerCase()) ||
       job.company.toLowerCase().includes(search.toLowerCase())
     );
+    console.log('After search filter:', filtered.length, 'jobs');
   }
 
   const pageSize = 10;

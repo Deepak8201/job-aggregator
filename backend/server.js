@@ -5,7 +5,10 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://job-aggregator-d06bb.web.app', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 

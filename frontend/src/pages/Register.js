@@ -17,7 +17,7 @@ export default function Register({ setToken }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/auth/register', { name, email, password });
+      const response = await axios.post(`${window.API_URL}/api/auth/register`, { name, email, password });
       localStorage.setItem('token', response.data.token);
       setToken(response.data.token);
       navigate('/');

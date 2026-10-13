@@ -25,7 +25,7 @@ export default function Profile() {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('/api/users/profile', {
+      const response = await axios.get(`${window.API_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(response.data);
@@ -89,7 +89,7 @@ export default function Profile() {
         indeedUrl
       });
 
-      const response = await axios.put('/api/users/profile', {
+      const response = await axios.put(`${window.API_URL}/api/users/profile`, {
         name,
         phone,
         resume: resumeToSend,

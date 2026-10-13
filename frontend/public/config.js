@@ -1,0 +1,1 @@
+window.API_URL = 'https://job-aggregator-app-966o.onrender.com';

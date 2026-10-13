@@ -18,23 +18,27 @@ export default function Dashboard() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get('/api/jobs', {
+      console.log('Fetching jobs from:', window.API_URL);
+      const response = await axios.get(`${window.API_URL}/api/jobs`, {
         params: { search, platform }
       });
-      setJobs(response.data.jobs);
+      console.log('Jobs response:', response.data);
+      setJobs(response.data.jobs || []);
     } catch (error) {
       console.error('Error fetching jobs:', error);
+      setJobs([]);
     }
   };
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('/api/applications', {
+      const response = await axios.get(`${window.API_URL}/api/applications`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setApplications(response.data);
+      setApplications(response.data || []);
     } catch (error) {
       console.error('Error fetching applications:', error);
+      setApplications([]);
     } finally {
       setLoading(false);
     }
@@ -45,7 +49,7 @@ export default function Dashboard() {
       // First check profile
       let profileData = null;
       try {
-        const profileRes = await axios.get('/api/users/profile', {
+        const profileRes = await axios.get(`${window.API_URL}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         profileData = profileRes.data;
@@ -86,7 +90,7 @@ export default function Dashboard() {
       }
 
       // Save application in our system
-      await axios.post('/api/applications', {
+      await axios.post(`${window.API_URL}/api/applications`, {
         jobId: job.id,
         jobTitle: job.title,
         company: job.company,

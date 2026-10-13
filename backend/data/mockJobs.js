@@ -10,7 +10,7 @@ const mockJobs = [
     description: 'Looking for experienced React developer with 5+ years experience.',
     requirements: ['React', 'JavaScript', 'Node.js', 'MongoDB'],
     postedAt: new Date('2026-10-10'),
-    url: 'https://www.linkedin.com/jobs/view/3736428571',
+    url: 'https://www.linkedin.com/jobs/view/4050218903',
   },
   {
     id: 'li-2',
@@ -22,7 +22,7 @@ const mockJobs = [
     description: 'Seeking full stack developer for growing startup.',
     requirements: ['JavaScript', 'React', 'Node.js', 'PostgreSQL'],
     postedAt: new Date('2026-10-11'),
-    url: 'https://www.linkedin.com/jobs/view/3742015894',
+    url: 'https://www.linkedin.com/jobs/view/4050218902',
   },
   {
     id: 'li-3',
@@ -34,7 +34,7 @@ const mockJobs = [
     description: 'Manage cloud infrastructure and CI/CD pipelines.',
     requirements: ['Docker', 'Kubernetes', 'AWS', 'Linux'],
     postedAt: new Date('2026-10-09'),
-    url: 'https://www.linkedin.com/jobs/view/3738456789',
+    url: 'https://www.linkedin.com/jobs/view/4050218901',
   },
 
   // Naukri Jobs
@@ -48,7 +48,7 @@ const mockJobs = [
     description: 'Build beautiful UIs using React and modern web technologies.',
     requirements: ['React', 'CSS', 'JavaScript', 'HTML'],
     postedAt: new Date('2026-10-11'),
-    url: 'https://www.naukri.com/job-listings-frontend-developer-startup-hub-mumbai-0-to-2-years-140900',
+    url: 'https://www.naukri.com/job-listings-frontend-developer-startup-hub-mumbai-10-to-12-years-ap2f0d21',
   },
   {
     id: 'nk-2',
@@ -60,7 +60,7 @@ const mockJobs = [
     description: 'Develop scalable backend services using Java and Spring.',
     requirements: ['Java', 'Spring Boot', 'SQL', 'Microservices'],
     postedAt: new Date('2026-10-10'),
-    url: 'https://www.naukri.com/job-listings-java-developer-enterprise-solutions-pune-3-to-7-years-150450',
+    url: 'https://www.naukri.com/job-listings-java-developer-enterprise-solutions-pune-7-to-10-years-ap2f0d22',
   },
   {
     id: 'nk-3',
@@ -72,7 +72,7 @@ const mockJobs = [
     description: 'Analyze data and create insights using Python and SQL.',
     requirements: ['Python', 'SQL', 'Excel', 'Tableau'],
     postedAt: new Date('2026-10-08'),
-    url: 'https://www.naukri.com/job-listings-data-analyst-analytics-pro-bangalore-1-to-3-years-142300',
+    url: 'https://www.naukri.com/job-listings-data-analyst-analytics-pro-bangalore-0-to-3-years-ap2f0d23',
   },
 
   // Indeed Jobs
@@ -86,7 +86,7 @@ const mockJobs = [
     description: 'Create amazing user experiences for web and mobile apps.',
     requirements: ['Figma', 'Adobe XD', 'Prototyping', 'User Research'],
     postedAt: new Date('2026-10-12'),
-    url: 'https://www.indeed.com/viewjob?jk=8f7d6e5c4b3a2e1d0',
+    url: 'https://in.indeed.com/viewjob?jk=abc123def456ghi789',
   },
   {
     id: 'id-2',
@@ -98,7 +98,7 @@ const mockJobs = [
     description: 'Test software and ensure quality standards.',
     requirements: ['Selenium', 'Testing', 'Python', 'Automation'],
     postedAt: new Date('2026-10-11'),
-    url: 'https://www.indeed.com/viewjob?jk=9a8b7c6d5e4f3a2b1',
+    url: 'https://in.indeed.com/viewjob?jk=jkl789mno456pqr123',
   },
   {
     id: 'id-3',
@@ -110,7 +110,7 @@ const mockJobs = [
     description: 'Lead product strategy and development.',
     requirements: ['Product Strategy', 'Analytics', 'Leadership', 'Agile'],
     postedAt: new Date('2026-10-09'),
-    url: 'https://www.indeed.com/viewjob?jk=1c2d3e4f5a6b7c8d9',
+    url: 'https://in.indeed.com/viewjob?jk=stu456vwx789yza123',
   },
   {
     id: 'id-4',
@@ -122,7 +122,7 @@ const mockJobs = [
     description: 'Develop iOS and Android applications.',
     requirements: ['React Native', 'JavaScript', 'Dart', 'Firebase'],
     postedAt: new Date('2026-10-10'),
-    url: 'https://www.indeed.com/viewjob?jk=2d3e4f5a6b7c8d9e0',
+    url: 'https://in.indeed.com/viewjob?jk=bcd789efg012hij345',
   },
 ];
 

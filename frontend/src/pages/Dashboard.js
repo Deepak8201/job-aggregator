@@ -146,8 +146,9 @@ export default function Dashboard() {
 
       {message && <div className={message.includes('✅') ? 'success' : 'error'}>{message}</div>}
 
-      {userDesignation && <div style={{ background: '#e8f5e9', padding: '10px', marginBottom: '15px', borderRadius: '5px', color: '#2e7d32' }}>
+      {userDesignation && <div style={{ background: '#e8f5e9', padding: '10px', marginBottom: '15px', borderRadius: '5px', color: '#2e7d32', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         💡 Auto-filtering for your designation: <strong>{userDesignation}</strong>
+        <button onClick={() => { setSearch(''); setPlatform(''); setDepartment(''); }} style={{ background: '#4caf50', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '3px', cursor: 'pointer' }}>Clear Filters</button>
       </div>}
 
       <div className="filters">

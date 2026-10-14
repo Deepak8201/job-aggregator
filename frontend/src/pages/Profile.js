@@ -111,26 +111,6 @@ export default function Profile() {
       console.log('Profile update response:', response.data);
       console.log('Designation in response:', response.data.designation);
 
-      // Update state with response data immediately
-      setDesignation(response.data.designation || '');
-      setName(response.data.name || '');
-      setPhone(response.data.phone || '');
-      setResume(response.data.resume || '');
-      setLinkedinUrl(response.data.linkedinUrl || '');
-      setNaukriUrl(response.data.naukriUrl || '');
-      setIndeedUrl(response.data.indeedUrl || '');
-
-      // Also save to localStorage immediately
-      localStorage.setItem('userProfile', JSON.stringify({
-        name: response.data.name,
-        phone: response.data.phone,
-        resume: response.data.resume,
-        designation: response.data.designation,
-        linkedinUrl: response.data.linkedinUrl,
-        naukriUrl: response.data.naukriUrl,
-        indeedUrl: response.data.indeedUrl,
-      }));
-
       setModal({
         isOpen: true,
         message: '✨ Profile updated successfully!',
@@ -138,6 +118,9 @@ export default function Profile() {
         redirect: false
       });
       setResumeFileName(null);
+
+      // Re-fetch to confirm all data saved
+      setTimeout(() => fetchProfile(), 1000);
     } catch (error) {
       setModal({
         isOpen: true,

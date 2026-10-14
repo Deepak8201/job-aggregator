@@ -21,6 +21,11 @@ const loadData = () => {
   try {
     if (fs.existsSync(usersFile)) {
       users = JSON.parse(fs.readFileSync(usersFile, 'utf8'));
+      // Ensure all users have designation field
+      users = users.map(user => ({
+        ...user,
+        designation: user.designation || ''
+      }));
       console.log(`Loaded ${users.length} users from file`);
     }
     if (fs.existsSync(applicationsFile)) {
@@ -34,8 +39,10 @@ const loadData = () => {
 
 const saveData = () => {
   try {
+    console.log('Saving users:', users.length);
     fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
     fs.writeFileSync(applicationsFile, JSON.stringify(applications, null, 2));
+    console.log('Data saved successfully');
   } catch (err) {
     console.error('Error saving data:', err);
   }

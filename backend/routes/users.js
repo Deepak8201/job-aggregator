@@ -12,6 +12,10 @@ router.get('/profile', auth, async (req, res) => {
     console.log('Found user:', user ? 'yes' : 'no');
     if (!user) return res.status(404).json({ error: 'User not found - please login again' });
     const { password, ...userWithoutPassword } = user;
+    // Ensure designation is included even if empty
+    if (!userWithoutPassword.designation) {
+      userWithoutPassword.designation = '';
+    }
     res.json(userWithoutPassword);
   } catch (error) {
     console.error('Profile error:', error);

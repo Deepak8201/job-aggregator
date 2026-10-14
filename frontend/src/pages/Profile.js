@@ -195,6 +195,7 @@ export default function Profile() {
               <option value="Developer">Developer</option>
               <option value="Senior Developer">Senior Developer</option>
               <option value="Engineer">Engineer</option>
+              <option value="QA">QA</option>
               <option value="Designer">Designer</option>
               <option value="Analyst">Analyst</option>
               <option value="Manager">Manager</option>

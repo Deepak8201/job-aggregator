@@ -5,8 +5,8 @@ const router = express.Router();
 
 // Get all jobs
 router.get('/', (req, res) => {
-  const { platform, search, page = 1, department } = req.query;
-  console.log('Jobs query:', { platform, search, department });
+  const { platform, search, page = 1, department, designation } = req.query;
+  console.log('Jobs query:', { platform, search, department, designation });
   let filtered = mockJobs;
 
   if (platform) {
@@ -15,6 +15,10 @@ router.get('/', (req, res) => {
 
   if (department) {
     filtered = filtered.filter(job => job.department === department);
+  }
+
+  if (designation) {
+    filtered = filtered.filter(job => job.designation === designation);
   }
 
   if (search) {

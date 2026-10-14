@@ -11,6 +11,7 @@ export default function Profile() {
   const [phone, setPhone] = useState('');
   const [resume, setResume] = useState(null);
   const [resumeFileName, setResumeFileName] = useState(null);
+  const [designation, setDesignation] = useState('');
   const [linkedinUrl, setLinkedinUrl] = useState('');
   const [naukriUrl, setNaukriUrl] = useState('');
   const [indeedUrl, setIndeedUrl] = useState('');
@@ -32,6 +33,7 @@ export default function Profile() {
       setName(response.data.name);
       setPhone(response.data.phone || '');
       setResume(response.data.resume);
+      setDesignation(response.data.designation || '');
       setLinkedinUrl(response.data.linkedinUrl || '');
       setNaukriUrl(response.data.naukriUrl || '');
       setIndeedUrl(response.data.indeedUrl || '');
@@ -41,6 +43,7 @@ export default function Profile() {
         name: response.data.name,
         phone: response.data.phone,
         resume: response.data.resume,
+        designation: response.data.designation,
         linkedinUrl: response.data.linkedinUrl,
         naukriUrl: response.data.naukriUrl,
         indeedUrl: response.data.indeedUrl,
@@ -54,6 +57,7 @@ export default function Profile() {
         setName(data.name || '');
         setPhone(data.phone || '');
         setResume(data.resume || '');
+        setDesignation(data.designation || '');
         setLinkedinUrl(data.linkedinUrl || '');
         setNaukriUrl(data.naukriUrl || '');
         setIndeedUrl(data.indeedUrl || '');
@@ -84,6 +88,7 @@ export default function Profile() {
         name,
         phone,
         resume: resumeToSend,
+        designation,
         linkedinUrl,
         naukriUrl,
         indeedUrl
@@ -93,6 +98,7 @@ export default function Profile() {
         name,
         phone,
         resume: resumeToSend,
+        designation,
         linkedinUrl,
         naukriUrl,
         indeedUrl
@@ -179,6 +185,21 @@ export default function Profile() {
             />
             {resume && <p className="info">✅ {resume}</p>}
             {resumeFileName && <p className="info">✅ {resumeFileName}</p>}
+          </div>
+
+          <div className="form-group">
+            <label>💼 Designation/Role:</label>
+            <select value={designation} onChange={(e) => setDesignation(e.target.value)}>
+              <option value="">Select Designation</option>
+              <option value="Junior Developer">Junior Developer</option>
+              <option value="Developer">Developer</option>
+              <option value="Senior Developer">Senior Developer</option>
+              <option value="Engineer">Engineer</option>
+              <option value="Designer">Designer</option>
+              <option value="Analyst">Analyst</option>
+              <option value="Manager">Manager</option>
+              <option value="Lead">Lead</option>
+            </select>
           </div>
 
           <hr style={{ margin: '30px 0', border: 'none', borderTop: '2px solid #eee' }} />

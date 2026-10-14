@@ -57,6 +57,7 @@ const db = {
       password: hashedPassword,
       phone: userData.phone || '',
       resume: userData.resume || null,
+      designation: userData.designation || '',
       linkedinUrl: userData.linkedinUrl || '',
       naukriUrl: userData.naukriUrl || '',
       indeedUrl: userData.indeedUrl || '',
@@ -82,6 +83,7 @@ const db = {
     if (updateData.name) user.name = updateData.name;
     if (updateData.phone !== undefined) user.phone = updateData.phone;
     if (updateData.resume !== undefined) user.resume = updateData.resume;
+    if (updateData.designation !== undefined) user.designation = updateData.designation;
     if (updateData.linkedinUrl !== undefined) user.linkedinUrl = updateData.linkedinUrl;
     if (updateData.naukriUrl !== undefined) user.naukriUrl = updateData.naukriUrl;
     if (updateData.indeedUrl !== undefined) user.indeedUrl = updateData.indeedUrl;

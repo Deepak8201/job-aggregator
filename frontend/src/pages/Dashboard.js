@@ -9,19 +9,35 @@ export default function Dashboard() {
   const [search, setSearch] = useState('');
   const [platform, setPlatform] = useState('');
   const [department, setDepartment] = useState('');
+  const [userDesignation, setUserDesignation] = useState('');
   const [message, setMessage] = useState('');
   const token = localStorage.getItem('token');
 
   useEffect(() => {
+    fetchProfile();
+  }, []);
+
+  useEffect(() => {
     fetchJobs();
     fetchApplications();
-  }, [search, platform, department]);
+  }, [search, platform, department, userDesignation]);
+
+  const fetchProfile = async () => {
+    try {
+      const response = await axios.get(`${window.API_URL}/api/users/profile`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setUserDesignation(response.data.designation || '');
+    } catch (err) {
+      console.error('Error fetching profile:', err);
+    }
+  };
 
   const fetchJobs = async () => {
     try {
       console.log('Fetching jobs from:', window.API_URL);
       const response = await axios.get(`${window.API_URL}/api/jobs`, {
-        params: { search, platform, department }
+        params: { search, platform, department, designation: userDesignation }
       });
       console.log('Jobs response:', response.data);
       setJobs(response.data.jobs || []);
@@ -129,6 +145,10 @@ export default function Dashboard() {
       <h1>🔍 Find & Apply to Jobs</h1>
 
       {message && <div className={message.includes('✅') ? 'success' : 'error'}>{message}</div>}
+
+      {userDesignation && <div style={{ background: '#e8f5e9', padding: '10px', marginBottom: '15px', borderRadius: '5px', color: '#2e7d32' }}>
+        💡 Auto-filtering for your designation: <strong>{userDesignation}</strong>
+      </div>}
 
       <div className="filters">
         <input

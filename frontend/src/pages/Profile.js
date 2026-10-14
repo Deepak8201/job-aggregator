@@ -133,9 +133,9 @@ export default function Profile() {
 
       setModal({
         isOpen: true,
-        message: '✨ Profile updated successfully!\nRedirecting to jobs...',
+        message: '✨ Profile updated successfully!',
         type: 'success',
-        redirect: true
+        redirect: false
       });
       setResumeFileName(null);
     } catch (error) {

@@ -172,6 +172,27 @@ const mockJobs = [
     postedAt: new Date('2026-10-10'),
     url: 'https://in.indeed.com/viewjob?jk=bcd789efg012hij345',
   },
+  // Additional QA Jobs
+  { id: 'qa-1', title: 'Senior QA Engineer', company: 'MNC Corp', platform: 'Naukri', department: 'QA', designation: 'QA', location: 'Bangalore', salary: '₹15-20 LPA', description: 'Lead QA team.', requirements: ['Automation', 'Leadership'], postedAt: new Date('2026-10-13'), url: 'https://www.naukri.com/qa-1' },
+  { id: 'qa-2', title: 'QA Analyst', company: 'Tech Solutions', platform: 'Indeed', department: 'QA', designation: 'QA', location: 'Hyderabad', salary: '₹9-12 LPA', description: 'Manual & automation testing.', requirements: ['Testing', 'Selenium'], postedAt: new Date('2026-10-12'), url: 'https://in.indeed.com/qa-2' },
+  { id: 'qa-3', title: 'QA Lead', company: 'Global Systems', platform: 'LinkedIn', department: 'QA', designation: 'QA', location: 'Delhi', salary: '₹16-22 LPA', description: 'QA Strategy & execution.', requirements: ['Leadership', 'QA'], postedAt: new Date('2026-10-11'), url: 'https://linkedin.com/qa-3' },
+  { id: 'qa-4', title: 'API QA Engineer', company: 'StartUp Tech', platform: 'Naukri', department: 'QA', designation: 'QA', location: 'Pune', salary: '₹10-13 LPA', description: 'API & backend testing.', requirements: ['Postman', 'SQL'], postedAt: new Date('2026-10-13'), url: 'https://www.naukri.com/qa-4' },
+  { id: 'qa-5', title: 'Performance QA', company: 'DevOps Ltd', platform: 'Indeed', department: 'QA', designation: 'QA', location: 'Bangalore', salary: '₹12-15 LPA', description: 'Performance testing.', requirements: ['JMeter', 'LoadRunner'], postedAt: new Date('2026-10-14'), url: 'https://in.indeed.com/qa-5' },
+
+  // Additional Developer Jobs
+  { id: 'dev-1', title: 'React Developer', company: 'WebSoft', platform: 'LinkedIn', department: 'Frontend', designation: 'Developer', location: 'Bangalore', salary: '₹10-14 LPA', description: 'Build React apps.', requirements: ['React', 'JavaScript'], postedAt: new Date('2026-10-12'), url: 'https://linkedin.com/dev-1' },
+  { id: 'dev-2', title: 'Node.js Backend Dev', company: 'CloudTech', platform: 'Naukri', department: 'Backend', designation: 'Developer', location: 'Mumbai', salary: '₹11-15 LPA', description: 'Backend services.', requirements: ['Node.js', 'MongoDB'], postedAt: new Date('2026-10-13'), url: 'https://www.naukri.com/dev-2' },
+  { id: 'dev-3', title: 'Python Developer', company: 'DataCorp', platform: 'Indeed', department: 'Backend', designation: 'Developer', location: 'Hyderabad', salary: '₹10-13 LPA', description: 'Python development.', requirements: ['Python', 'Django'], postedAt: new Date('2026-10-14'), url: 'https://in.indeed.com/dev-3' },
+  { id: 'dev-4', title: 'Vue.js Developer', company: 'Frontend Inc', platform: 'LinkedIn', department: 'Frontend', designation: 'Junior Developer', location: 'Pune', salary: '₹7-10 LPA', description: 'Vue.js projects.', requirements: ['Vue.js', 'CSS'], postedAt: new Date('2026-10-13'), url: 'https://linkedin.com/dev-4' },
+  { id: 'dev-5', title: 'Full Stack', company: 'WebDev Studios', platform: 'Naukri', department: 'Backend', designation: 'Senior Developer', location: 'Delhi', salary: '₹16-20 LPA', description: 'End-to-end development.', requirements: ['MERN', 'AWS'], postedAt: new Date('2026-10-12'), url: 'https://www.naukri.com/dev-5' },
+
+  // Additional Designer Jobs
+  { id: 'des-1', title: 'Senior UI Designer', company: 'DesignPro', platform: 'LinkedIn', department: 'Design', designation: 'Designer', location: 'Bangalore', salary: '₹12-16 LPA', description: 'UI design leadership.', requirements: ['Figma', 'Design System'], postedAt: new Date('2026-10-14'), url: 'https://linkedin.com/des-1' },
+  { id: 'des-2', title: 'UX Designer', company: 'UserFirst', platform: 'Indeed', department: 'Design', designation: 'Designer', location: 'Mumbai', salary: '₹10-13 LPA', description: 'User experience design.', requirements: ['UX Research', 'Figma'], postedAt: new Date('2026-10-13'), url: 'https://in.indeed.com/des-2' },
+
+  // Additional Analyst Jobs
+  { id: 'ana-1', title: 'Business Analyst', company: 'ConsultPro', platform: 'Naukri', department: 'Analytics', designation: 'Analyst', location: 'Delhi', salary: '₹11-14 LPA', description: 'Business analysis.', requirements: ['SQL', 'Excel'], postedAt: new Date('2026-10-12'), url: 'https://www.naukri.com/ana-1' },
+  { id: 'ana-2', title: 'Data Analyst', company: 'Analytics Hub', platform: 'LinkedIn', department: 'Analytics', designation: 'Analyst', location: 'Bangalore', salary: '₹10-13 LPA', description: 'Data analysis & insights.', requirements: ['Python', 'SQL'], postedAt: new Date('2026-10-13'), url: 'https://linkedin.com/ana-2' },
 ];
 
 module.exports = mockJobs;

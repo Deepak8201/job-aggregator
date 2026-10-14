@@ -8,7 +8,6 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [platform, setPlatform] = useState('');
-  const [department, setDepartment] = useState('');
   const [userDesignation, setUserDesignation] = useState('');
   const [message, setMessage] = useState('');
   const token = localStorage.getItem('token');
@@ -20,7 +19,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetchJobs();
     fetchApplications();
-  }, [search, platform, department, userDesignation]);
+  }, [search, platform, userDesignation]);
 
   const fetchProfile = async () => {
     try {
@@ -37,7 +36,7 @@ export default function Dashboard() {
     try {
       console.log('Fetching jobs from:', window.API_URL);
       const response = await axios.get(`${window.API_URL}/api/jobs`, {
-        params: { search, platform, department, designation: userDesignation }
+        params: { search, platform, designation: userDesignation }
       });
       console.log('Jobs response:', response.data);
       setJobs(response.data.jobs || []);
@@ -146,9 +145,8 @@ export default function Dashboard() {
 
       {message && <div className={message.includes('✅') ? 'success' : 'error'}>{message}</div>}
 
-      {userDesignation && <div style={{ background: '#e8f5e9', padding: '10px', marginBottom: '15px', borderRadius: '5px', color: '#2e7d32', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        💡 Auto-filtering for your designation: <strong>{userDesignation}</strong>
-        <button onClick={() => { setSearch(''); setPlatform(''); setDepartment(''); }} style={{ background: '#4caf50', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '3px', cursor: 'pointer' }}>Clear Filters</button>
+      {userDesignation && <div style={{ background: '#e8f5e9', padding: '10px', marginBottom: '15px', borderRadius: '5px', color: '#2e7d32' }}>
+        ✅ Showing <strong>{userDesignation}</strong> jobs only
       </div>}
 
       <div className="filters">
@@ -163,17 +161,6 @@ export default function Dashboard() {
           <option value="LinkedIn">LinkedIn</option>
           <option value="Naukri">Naukri</option>
           <option value="Indeed">Indeed</option>
-        </select>
-        <select value={department} onChange={(e) => setDepartment(e.target.value)}>
-          <option value="">All Departments</option>
-          <option value="Frontend">Frontend</option>
-          <option value="Backend">Backend</option>
-          <option value="DevOps">DevOps</option>
-          <option value="QA">QA</option>
-          <option value="Design">Design</option>
-          <option value="Analytics">Analytics</option>
-          <option value="Product">Product</option>
-          <option value="Mobile">Mobile</option>
         </select>
       </div>
 

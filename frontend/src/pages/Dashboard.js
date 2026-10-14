@@ -9,6 +9,7 @@ export default function Dashboard() {
   const [search, setSearch] = useState('');
   const [platform, setPlatform] = useState('');
   const [userDesignation, setUserDesignation] = useState('');
+  const [userProfile, setUserProfile] = useState(null);
   const [message, setMessage] = useState('');
   const token = localStorage.getItem('token');
 
@@ -27,6 +28,7 @@ export default function Dashboard() {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUserDesignation(response.data.designation || '');
+      setUserProfile(response.data);
     } catch (err) {
       console.error('Error fetching profile:', err);
     }
@@ -193,6 +195,21 @@ export default function Dashboard() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="profile-section" style={{ background: '#f5f5f5', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+          <h3>👤 Your Profile</h3>
+          {userProfile && (
+            <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
+              <p><strong>Name:</strong> {userProfile.name}</p>
+              <p><strong>Designation:</strong> {userProfile.designation || 'Not set'}</p>
+              <p><strong>Phone:</strong> {userProfile.phone || 'Not set'}</p>
+              <p><strong>Resume:</strong> {userProfile.resume || 'Not uploaded'}</p>
+              {userProfile.linkedinUrl && <p><strong>LinkedIn:</strong> <a href={userProfile.linkedinUrl} target="_blank" rel="noopener noreferrer">View Profile</a></p>}
+              {userProfile.naukriUrl && <p><strong>Naukri:</strong> <a href={userProfile.naukriUrl} target="_blank" rel="noopener noreferrer">View Profile</a></p>}
+              {userProfile.indeedUrl && <p><strong>Indeed:</strong> <a href={userProfile.indeedUrl} target="_blank" rel="noopener noreferrer">View Profile</a></p>}
+            </div>
+          )}
         </div>
 
         <div className="applications-section">

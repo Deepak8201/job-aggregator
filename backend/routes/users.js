@@ -25,11 +25,12 @@ router.put('/profile', auth, async (req, res) => {
     console.log('Updating profile for userId:', req.userId);
     console.log('Update data:', req.body);
 
-    const { name, phone, resume, linkedinUrl, naukriUrl, indeedUrl } = req.body;
+    const { name, phone, resume, designation, linkedinUrl, naukriUrl, indeedUrl } = req.body;
     const user = await db.updateUser(req.userId, {
       name,
       phone,
       resume,
+      designation,
       linkedinUrl,
       naukriUrl,
       indeedUrl

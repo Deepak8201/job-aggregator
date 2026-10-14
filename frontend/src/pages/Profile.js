@@ -39,7 +39,7 @@ export default function Profile() {
       setIndeedUrl(response.data.indeedUrl || '');
 
       // Save to localStorage as backup
-      localStorage.setItem('userProfile', JSON.stringify({
+      const profileData = {
         name: response.data.name,
         phone: response.data.phone,
         resume: response.data.resume,
@@ -47,7 +47,9 @@ export default function Profile() {
         linkedinUrl: response.data.linkedinUrl,
         naukriUrl: response.data.naukriUrl,
         indeedUrl: response.data.indeedUrl,
-      }));
+      };
+      console.log('Saving to localStorage:', profileData);
+      localStorage.setItem('userProfile', JSON.stringify(profileData));
     } catch (error) {
       console.error('Error fetching profile:', error);
       // Load from localStorage if API fails
@@ -107,6 +109,7 @@ export default function Profile() {
       });
 
       console.log('Profile update response:', response.data);
+      console.log('Designation in response:', response.data.designation);
 
       // Update state with response data immediately
       setDesignation(response.data.designation || '');
@@ -116,6 +119,17 @@ export default function Profile() {
       setLinkedinUrl(response.data.linkedinUrl || '');
       setNaukriUrl(response.data.naukriUrl || '');
       setIndeedUrl(response.data.indeedUrl || '');
+
+      // Also save to localStorage immediately
+      localStorage.setItem('userProfile', JSON.stringify({
+        name: response.data.name,
+        phone: response.data.phone,
+        resume: response.data.resume,
+        designation: response.data.designation,
+        linkedinUrl: response.data.linkedinUrl,
+        naukriUrl: response.data.naukriUrl,
+        indeedUrl: response.data.indeedUrl,
+      }));
 
       setModal({
         isOpen: true,

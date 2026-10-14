@@ -41,7 +41,11 @@ export default function Dashboard() {
         params: { search, platform, designation: userDesignation }
       });
       console.log('Jobs response:', response.data);
-      setJobs(response.data.jobs || []);
+      // Sort by recent first (newest job first)
+      const sortedJobs = (response.data.jobs || []).sort((a, b) =>
+        new Date(b.postedAt) - new Date(a.postedAt)
+      );
+      setJobs(sortedJobs);
     } catch (error) {
       console.error('Error fetching jobs:', error);
       setJobs([]);
@@ -168,7 +172,8 @@ export default function Dashboard() {
 
       <div className="dashboard-grid">
         <div className="jobs-section">
-          <h2>Available Jobs ({jobs.length})</h2>
+          <h2>🔥 Recently Posted Jobs for {userDesignation || 'You'} ({jobs.length})</h2>
+          <p style={{ color: '#666', fontSize: '12px', marginBottom: '15px' }}>Jobs sorted by most recent first</p>
           <div className="jobs-list">
             {jobs.map(job => (
               <div key={job.id} className="job-card">

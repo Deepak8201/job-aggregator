@@ -108,6 +108,15 @@ export default function Profile() {
 
       console.log('Profile update response:', response.data);
 
+      // Update state with response data immediately
+      setDesignation(response.data.designation || '');
+      setName(response.data.name || '');
+      setPhone(response.data.phone || '');
+      setResume(response.data.resume || '');
+      setLinkedinUrl(response.data.linkedinUrl || '');
+      setNaukriUrl(response.data.naukriUrl || '');
+      setIndeedUrl(response.data.indeedUrl || '');
+
       setModal({
         isOpen: true,
         message: '✨ Profile updated successfully!\nRedirecting to jobs...',
@@ -115,7 +124,6 @@ export default function Profile() {
         redirect: true
       });
       setResumeFileName(null);
-      fetchProfile();
     } catch (error) {
       setModal({
         isOpen: true,

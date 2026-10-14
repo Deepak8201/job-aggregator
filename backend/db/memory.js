@@ -1,11 +1,47 @@
-// In-Memory Database (No MongoDB needed!)
+// In-Memory Database with File Persistence
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
+const fs = require('fs');
+const path = require('path');
 
+const dataDir = path.join(__dirname, 'data');
+const usersFile = path.join(dataDir, 'users.json');
+const applicationsFile = path.join(dataDir, 'applications.json');
 
-// Initialize empty - users will register
+// Create data directory if it doesn't exist
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+// Load data from files
 let users = [];
 let applications = [];
+
+const loadData = () => {
+  try {
+    if (fs.existsSync(usersFile)) {
+      users = JSON.parse(fs.readFileSync(usersFile, 'utf8'));
+      console.log(`Loaded ${users.length} users from file`);
+    }
+    if (fs.existsSync(applicationsFile)) {
+      applications = JSON.parse(fs.readFileSync(applicationsFile, 'utf8'));
+      console.log(`Loaded ${applications.length} applications from file`);
+    }
+  } catch (err) {
+    console.error('Error loading data:', err);
+  }
+};
+
+const saveData = () => {
+  try {
+    fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+    fs.writeFileSync(applicationsFile, JSON.stringify(applications, null, 2));
+  } catch (err) {
+    console.error('Error saving data:', err);
+  }
+};
+
+loadData();
 
 const db = {
   // User operations
@@ -27,6 +63,7 @@ const db = {
       createdAt: new Date(),
     };
     users.push(user);
+    saveData();
     return user;
   },
 
@@ -49,6 +86,7 @@ const db = {
     if (updateData.naukriUrl !== undefined) user.naukriUrl = updateData.naukriUrl;
     if (updateData.indeedUrl !== undefined) user.indeedUrl = updateData.indeedUrl;
 
+    saveData();
     return user;
   },
 
@@ -70,6 +108,7 @@ const db = {
       status: 'applied',
     };
     applications.push(app);
+    saveData();
     return app;
   },
 
